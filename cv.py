@@ -8,6 +8,18 @@ from tqdm import tqdm
 import requests
 import logging
 from scipy import signal
+import torch
+import torch.nn as nn
+import torch.utils.data as Data
+import torch.nn.functional as F
+import numpy as np
+from sklearn import preprocessing
+from sklearn.metrics import roc_auc_score, classification_report, confusion_matrix  # Import confusion_matrix
+from torch.nn.parameter import Parameter
+import time
+import pickle
+import matplotlib.pyplot as plt  # Import Matplotlib for plotting
+import seaborn as sns  # Import Seaborn for better visualization of confusion matrix
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -138,18 +150,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-import torch
-import torch.nn as nn
-import torch.utils.data as Data
-import torch.nn.functional as F
-import numpy as np
-from sklearn import preprocessing
-from sklearn.metrics import roc_auc_score, classification_report, confusion_matrix  # Import confusion_matrix
-from torch.nn.parameter import Parameter
-import time
-import pickle
-import matplotlib.pyplot as plt  # Import Matplotlib for plotting
-import seaborn as sns  # Import Seaborn for better visualization of confusion matrix
 
 def one_hot(y_, maxvalue=None):
     if maxvalue is None:
